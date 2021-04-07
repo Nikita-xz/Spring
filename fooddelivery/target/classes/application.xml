@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+        https://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context
+        https://www.springframework.org/schema/context/spring-context.xsd">
+
+	<bean
+		class="com.xworkz.fooddelivery.repository.FoodIteamRepositoryImpl"
+		id="foodIteamRepositoryImpl" scope="singleton"/>
+	<bean class="com.xworkz.fooddelivery.service.FoodIteamServiceImpl"
+		id="foodIteamServiceImpl" scope="singleton">
+		<constructor-arg ref="foodIteamRepositoryImpl" />
+	</bean>
+
+	<bean
+		class="com.xworkz.fooddelivery.repository.CustomerRepositoryImpl"
+		id="customerRepositoryImpl" scope="singleton" />
+	<bean class="com.xworkz.fooddelivery.service.CustomerServiceImpl"
+		id="customerServiceImpl" scope="singleton">
+		<constructor-arg ref="customerRepositoryImpl" />
+	</bean>
+
+	<bean
+		class="com.xworkz.fooddelivery.repository.HotelVendorRepositoryImpl"
+		id="hotelVendorRepositoryImpl" scope="singleton" />
+	<bean
+		class="com.xworkz.fooddelivery.service.HotelVendorServiceImpl"
+		id="HotelVendorServiceImpl" scope="singleton">
+		<constructor-arg ref="hotelVendorRepositoryImpl" />
+	</bean>
+
+
+</beans>
